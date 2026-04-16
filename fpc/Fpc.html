@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>DKGOC — Link Banking & Financial Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --forest: #0f2d1a;
+  --deep: #163824;
+  --mid: #1f5c38;
+  --accent: #2e8b57;
+  --lime: #52b788;
+  --pale: #d8f3dc;
+  --cream: #fafdf7;
+  --white: #ffffff;
+  --ink: #0d1f13;
+  --muted: #5a7a65;
+  --border: #c8e6cd;
+  --card-bg: #f4faf6;
+  --shadow: 0 4px 24px rgba(15,45,26,0.10);
+  --shadow-lg: 0 12px 48px rgba(15,45,26,0.16);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.65;overflow-x:hidden;}
+
+/* TOP BAR */
+.topbar{background:var(--forest);color:rgba(255,255,255,.6);font-size:12px;padding:7px 0;}
+.topbar-inner{max-width:1260px;margin:auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+.topbar a{color:rgba(255,255,255,.55);text-decoration:none;margin-left:16px;transition:color .2s;}
+.topbar a:hover{color:var(--lime);}
+
+/* HEADER */
+header{background:var(--white);border-bottom:2px solid var(--pale);position:sticky;top:0;z-index:200;}
+.header-inner{max-width:1260px;margin:auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.logo-mark{width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--forest);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(15,45,26,0.2);}
+.logo-mark img{width:100%;height:100%;object-fit:fill;}
+.logo-words .abbr{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--forest);line-height:1;}
+.logo-words .full{font-size:11px;font-weight:600;color:var(--muted);line-height:1.35;margin-top:2px;max-width:240px;}
+.logo-words .tag{font-size:10px;font-weight:700;color:var(--lime);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;}
+
+nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+.nav-item{position:relative;font-size:13.5px;font-weight:600;color:var(--ink);text-decoration:none;padding:9px 14px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s;}
+.nav-item:hover{background:var(--pale);color:var(--forest);}
+.nav-item.has-drop::after{content:' ▾';font-size:10px;}
+.drop-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--white);border:1px solid var(--border);border-radius:10px;min-width:210px;box-shadow:var(--shadow-lg);z-index:300;overflow:hidden;}
+.nav-item:hover .drop-menu{display:block;}
+.drop-menu a{display:block;padding:11px 18px;color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;border-bottom:1px solid var(--pale);transition:background .15s,color .15s;}
+.drop-menu a:last-child{border-bottom:none;}
+.drop-menu a:hover{background:var(--pale);color:var(--forest);}
+.btn-member{background:linear-gradient(135deg,var(--accent),var(--mid)) !important;color:var(--white) !important;padding:10px 20px !important;border-radius:8px !important;font-weight:700 !important;box-shadow:0 4px 14px rgba(30,90,56,.25) !important;}
+.btn-member:hover{transform:translateY(-2px) !important;}
+
+/* TICKER */
+.ticker{background:var(--accent);color:var(--white);padding:9px 0;overflow:hidden;}
+.ticker-inner{max-width:1260px;margin:auto;padding:0 28px;display:flex;align-items:center;gap:16px;}
+.ticker-badge{background:var(--forest);color:var(--white);font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:3px 12px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+.ticker-track{overflow:hidden;flex:1;}
+.ticker-scroll{display:inline-block;white-space:nowrap;font-size:13px;font-weight:600;animation:scroll 40s linear infinite;}
+@keyframes scroll{from{transform:translateX(100%);}to{transform:translateX(-100%);}}
+
+/* HERO */
+.hero{position:relative;min-height:600px;background:var(--forest);display:flex;align-items:center;overflow:hidden;}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(0.32) saturate(0.7);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,20,12,.9) 0%,rgba(5,20,12,.55) 60%,transparent 100%);}
+.hero-content{position:relative;z-index:2;max-width:1260px;margin:auto;padding:80px 28px;color:var(--white);width:100%;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px;}
+.hero-content h1{font-family:'Playfair Display',serif;font-size:50px;font-weight:900;line-height:1.15;margin-bottom:20px;max-width:680px;text-shadow:0 2px 18px rgba(0,0,0,.5);}
+.hero-content p{font-size:17px;color:rgba(255,255,255,.78);line-height:1.7;margin-bottom:34px;max-width:560px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-green{background:linear-gradient(135deg,var(--accent),var(--mid));color:var(--white);padding:14px 32px;border-radius:8px;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 4px 18px rgba(30,90,56,.4);transition:transform .15s,box-shadow .15s;display:inline-block;}
+.btn-green:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(30,90,56,.5);}
+.btn-ghost{border:2px solid rgba(255,255,255,.35);color:var(--white);padding:12px 28px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:background .2s;display:inline-block;}
+.btn-ghost:hover{background:rgba(255,255,255,.08);}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;}
+.hbadge{background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:12px 18px;color:#fff;display:flex;align-items:center;gap:10px;}
+.hbadge-icon{font-size:22px;}
+.hbadge-title{font-size:13px;font-weight:700;}
+.hbadge-rate{font-size:11px;color:var(--lime);margin-top:2px;}
+
+/* STATS */
+.stats{background:var(--mid);padding:28px 0;}
+.stats-inner{max-width:1260px;margin:auto;padding:0 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;}
+.stat{padding:6px;border-right:1px solid rgba(255,255,255,.15);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:var(--white);}
+.stat-l{font-size:12px;font-weight:700;color:rgba(255,255,255,.65);margin-top:2px;}
+
+/* SECTIONS */
+section{padding:80px 28px;}
+.sec-inner{max-width:1260px;margin:auto;}
+.sec-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--pale);padding:4px 14px;border-radius:20px;margin-bottom:12px;}
+.sec-heading{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--forest);margin-bottom:14px;line-height:1.25;}
+.sec-sub{color:var(--muted);font-size:16px;max-width:580px;line-height:1.65;}
+.sec-center{text-align:center;}
+.sec-center .sec-sub{margin:0 auto;}
+.ruled{width:48px;height:3px;background:var(--lime);border-radius:2px;margin-top:16px;}
+.ruled.center{margin-left:auto;margin-right:auto;}
+
+/* ABOUT */
+.about-section{background:var(--white);padding:80px 28px;}
+.about-grid{max-width:1260px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.about-photo{width:100%;height:420px;border-radius:20px;overflow:hidden;background:var(--pale);}
+.about-photo img{width:100%;height:100%;object-fit:cover;}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 28px;}
+.pillar{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--forest);padding:10px 12px;background:var(--card-bg);border-radius:8px;border-left:3px solid var(--lime);}
+
+/* PRODUCTS */
+.products-section{background:var(--cream);padding:80px 28px;}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:52px;}
+.pcard{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);transition:transform .25s,box-shadow .25s;}
+.pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.pcard-head{padding:28px 28px 20px;display:flex;align-items:flex-start;gap:18px;}
+.pcard-icon{width:56px;height:56px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.pcard-head h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--forest);margin-bottom:6px;}
+.rate-badge{display:inline-flex;align-items:center;gap:5px;background:var(--pale);color:var(--accent);font-size:12px;font-weight:800;padding:3px 10px;border-radius:20px;}
+.pcard-body{padding:0 28px 28px;}
+.pcard-body p{font-size:14.5px;color:var(--muted);line-height:1.68;margin-bottom:18px;}
+.pcard-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px;}
+.pcard-features li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--ink);}
+.pcard-features li::before{content:'✓';color:var(--accent);font-weight:800;font-size:14px;flex-shrink:0;margin-top:1px;}
+.pcard-details{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;}
+.pcard-detail{background:var(--card-bg);padding:12px 14px;text-align:center;}
+.pcard-detail .dlabel{font-size:10.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+.pcard-detail .dval{font-size:14px;font-weight:700;color:var(--forest);}
+.link-more{color:var(--accent);text-decoration:none;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:gap .15s;}
+.link-more:hover{gap:12px;}
+
+/* RATE TABLE */
+.rate-table-wrap h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--forest);text-align:center;margin-bottom:24px;}
+.rtable{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+.rtable thead tr{background:var(--forest);}
+.rtable thead th{padding:16px 18px;color:var(--white);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;text-align:left;}
+.rtable thead th:not(:first-child){text-align:center;}
+.rtable tbody tr{background:var(--white);}
+.rtable tbody tr:nth-child(even){background:var(--card-bg);}
+.rtable tbody tr:hover{background:var(--pale);}
+.rtable td{padding:15px 18px;color:var(--muted);border-bottom:1px solid var(--pale);}
+.rtable td:first-child{font-weight:700;color:var(--forest);}
+.rtable td:not(:first-child){text-align:center;}
+.rate-hi{color:var(--accent);font-weight:800;font-size:15px;}
+.rate-note{text-align:center;font-size:12px;color:var(--muted);margin-top:12px;font-style:italic;}
+
+/* LOANS */
+.loans-section{background:var(--forest);padding:80px 28px;color:var(--white);}
+.loans-section .sec-tag{background:rgba(255,255,255,.12);color:var(--lime);}
+.loans-section .sec-heading{color:var(--white);}
+.loans-section .sec-sub{color:rgba(255,255,255,.65);}
+.loans-section .ruled{background:var(--lime);}
+.loans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.lcard{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:28px 24px;transition:background .2s,transform .2s;}
+.lcard:hover{background:rgba(255,255,255,.12);transform:translateY(-5px);}
+.lcard-icon{font-size:38px;margin-bottom:16px;}
+.lcard h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:10px;color:var(--white);}
+.lcard p{font-size:14px;color:rgba(255,255,255,.62);line-height:1.65;margin-bottom:18px;}
+.lcard-meta{display:flex;flex-direction:column;gap:8px;}
+.lmeta-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:8px 12px;background:rgba(255,255,255,.06);border-radius:8px;}
+.lmeta-row .lkey{color:rgba(255,255,255,.55);}
+.lmeta-row .lval{color:var(--lime);font-weight:700;}
+
+/* HOW IT WORKS */
+.how-section{background:var(--white);padding:80px 28px;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;}
+.steps::before{content:'';position:absolute;top:36px;left:calc(12.5% + 18px);right:calc(12.5% + 18px);height:2px;background:repeating-linear-gradient(90deg,var(--lime) 0,var(--lime) 8px,transparent 8px,transparent 16px);}
+.step{text-align:center;padding:28px 18px;}
+.step-num{width:72px;height:72px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--mid));color:var(--white);font-size:26px;font-weight:900;font-family:'Playfair Display',serif;box-shadow:0 4px 18px rgba(30,90,56,.3);position:relative;z-index:1;}
+.step h4{font-size:15px;font-weight:700;color:var(--forest);margin-bottom:8px;}
+.step p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+
+/* WHY */
+.why-section{background:var(--cream);padding:80px 28px;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.wcard{background:var(--white);border-radius:14px;padding:32px 26px;border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;}
+.wcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.wcard-icon{width:52px;height:52px;border-radius:12px;margin-bottom:18px;display:flex;align-items:center;justify-content:center;font-size:24px;background:var(--pale);}
+.wcard h3{font-size:16.5px;font-weight:700;color:var(--forest);margin-bottom:10px;}
+.wcard p{font-size:14px;color:var(--muted);line-height:1.65;}
+
+/* CALCULATOR */
+.calc-section{background:var(--forest);padding:80px 28px;}
+.calc-section .sec-heading{color:var(--white);}
+.calc-section .sec-tag{background:rgba(255,255,255,.12);color:var(--lime);}
+.calc-section .sec-sub{color:rgba(255,255,255,.6);}
+.calc-box{background:var(--white);border-radius:20px;padding:40px;box-shadow:var(--shadow-lg);margin-top:44px;}
+.calc-tabs{display:flex;gap:6px;margin-bottom:32px;background:var(--card-bg);padding:6px;border-radius:12px;flex-wrap:wrap;}
+.calc-tab{flex:1;padding:10px 18px;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:600;color:var(--muted);background:transparent;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap;}
+.calc-tab.active{background:var(--white);color:var(--forest);box-shadow:var(--shadow);}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.form-group{margin-bottom:22px;}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--forest);margin-bottom:7px;text-transform:uppercase;letter-spacing:.04em;}
+.slider-row{display:flex;align-items:center;gap:12px;margin-top:8px;}
+.slider-row input[type=range]{flex:1;accent-color:var(--accent);height:6px;cursor:pointer;}
+.slider-val{min-width:90px;text-align:right;font-size:15px;font-weight:700;color:var(--forest);}
+.calc-result{background:linear-gradient(135deg,var(--deep),var(--forest));border-radius:16px;padding:32px;color:var(--white);}
+.calc-result h4{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:24px;color:var(--lime);}
+.res-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.res-row:last-of-type{border-bottom:none;}
+.res-label{font-size:14px;color:rgba(255,255,255,.65);}
+.res-val{font-size:15px;font-weight:700;}
+.res-total{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:18px 20px;margin-top:16px;text-align:center;}
+.res-total .tl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lime);margin-bottom:6px;}
+.res-total .tv{font-size:32px;font-weight:900;font-family:'Playfair Display',serif;color:var(--white);}
+.btn-calc{width:100%;padding:15px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--mid));color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;cursor:pointer;margin-top:6px;box-shadow:0 4px 16px rgba(30,90,56,.3);transition:transform .15s;}
+.btn-calc:hover{transform:translateY(-2px);}
+
+/* NEWS */
+.news-section{background:var(--white);padding:80px 28px;}
+.news-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;}
+.news-feat{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--mid),var(--forest));color:var(--white);}
+.nf-img{height:200px;background:linear-gradient(135deg,#2e8b57,#163824);display:flex;align-items:center;justify-content:center;font-size:72px;}
+.nf-body{padding:28px 28px 32px;}
+.nf-date{font-size:11.5px;font-weight:700;color:var(--lime);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+.nf-body h3{font-family:'Playfair Display',serif;font-size:20px;line-height:1.35;margin-bottom:12px;}
+.nf-body p{font-size:14px;color:rgba(255,255,255,.72);line-height:1.65;margin-bottom:20px;}
+.news-list{display:flex;flex-direction:column;gap:12px;}
+.nitem{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:10px;border-left:3px solid transparent;transition:background .15s,border-color .15s;cursor:pointer;}
+.nitem:hover{background:var(--pale);border-left-color:var(--accent);}
+.nitem-icon{font-size:26px;flex-shrink:0;}
+.nitem-date{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+.nitem-title{font-size:14px;font-weight:600;color:var(--ink);margin-top:3px;line-height:1.4;}
+
+/* EVENTS */
+.events-section{background:var(--cream);padding:80px 28px;}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.ecard{border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--white);transition:box-shadow .2s,transform .2s;}
+.ecard:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);}
+.ecard-top{background:var(--forest);color:var(--white);padding:16px 20px;display:flex;gap:16px;align-items:center;}
+.ecal .day{font-size:32px;font-weight:900;font-family:'Playfair Display',serif;line-height:1;}
+.ecal .month{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--lime);font-weight:700;}
+.einfo .etype{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.04em;}
+.einfo .eloc{font-size:13.5px;color:rgba(255,255,255,.85);margin-top:3px;}
+.ecard-body{padding:18px 20px 24px;}
+.ecard-body h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.35;}
+.ecard-body p{font-size:13.5px;color:var(--muted);line-height:1.55;}
+
+/* PARTNERS */
+.partners-section{background:var(--white);padding:56px 28px;}
+.partners-inner{max-width:1260px;margin:auto;}
+.partners-inner h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--forest);text-align:center;margin-bottom:32px;}
+.partner-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.p-logo{background:var(--card-bg);border:1.5px solid var(--border);border-radius:10px;padding:12px 22px;font-size:13px;font-weight:700;color:var(--muted);transition:border-color .2s,color .2s,background .2s;}
+.p-logo:hover{border-color:var(--accent);color:var(--forest);background:var(--pale);}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--accent) 0%,var(--mid) 50%,var(--forest) 100%);padding:88px 28px;text-align:center;color:var(--white);}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:40px;margin-bottom:16px;}
+.cta-section p{font-size:17px;color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 36px;line-height:1.65;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:var(--white);color:var(--forest);padding:14px 32px;border-radius:8px;font-weight:800;font-size:15px;text-decoration:none;transition:transform .15s,background .2s;}
+.btn-white:hover{background:var(--pale);transform:translateY(-2px);}
+.btn-border-white{border:2px solid rgba(255,255,255,.6);color:var(--white);padding:12px 28px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:background .2s,border-color .2s;}
+.btn-border-white:hover{background:rgba(255,255,255,.1);border-color:var(--white);}
+
+/* FOOTER */
+footer{background:#071410;color:rgba(255,255,255,.55);}
+.footer-main{max-width:1260px;margin:auto;padding:60px 28px 36px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+.fb-abbr{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--lime);margin-bottom:4px;}
+.fb-full{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.4);margin-bottom:14px;}
+.footer-brand p{font-size:13.5px;line-height:1.7;margin-bottom:18px;}
+.f-socials{display:flex;gap:10px;}
+.f-social{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--white);text-decoration:none;font-size:14px;font-weight:700;transition:background .2s;}
+.f-social:hover{background:var(--accent);}
+.f-col h4{font-size:11.5px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:.07em;margin-bottom:16px;}
+.f-col a{display:block;color:rgba(255,255,255,.5);text-decoration:none;font-size:13.5px;margin-bottom:10px;transition:color .15s;}
+.f-col a:hover{color:var(--lime);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);max-width:1260px;margin:0 auto;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;flex-wrap:wrap;gap:8px;}
+.footer-bottom a{color:rgba(255,255,255,.4);text-decoration:none;margin-left:16px;}
+.footer-bottom a:hover{color:var(--lime);}
+
+/* RESPONSIVE */
+/* ── MOBILE NAV TOGGLE ── */
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none;}
+.nav-toggle span{display:block;width:24px;height:2.5px;background:var(--forest);border-radius:2px;transition:all .3s;}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--white);z-index:500;flex-direction:column;padding:24px;overflow-y:auto;}
+.mobile-nav.open{display:flex;}
+.mobile-nav-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;}
+.mobile-nav-close{font-size:28px;cursor:pointer;background:none;border:none;color:var(--forest);line-height:1;}
+.mobile-nav a{display:block;font-size:18px;font-weight:600;color:var(--forest);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--pale);}
+.mobile-nav a:last-child{border-bottom:none;margin-top:16px;text-align:center;background:linear-gradient(135deg,var(--accent),var(--mid));color:var(--white) !important;padding:16px;border-radius:10px;}
+
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .products-grid{grid-template-columns:1fr;}
+  .loans-grid{grid-template-columns:1fr 1fr;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .steps::before{display:none;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .calc-grid{grid-template-columns:1fr;}
+  .news-grid{grid-template-columns:1fr;}
+  .events-grid{grid-template-columns:1fr 1fr;}
+  .footer-main{grid-template-columns:1fr 1fr;}
+  nav{display:none;}
+  .nav-toggle{display:flex;}
+  .stats-inner{grid-template-columns:repeat(3,1fr);}
+  .contact-grid{grid-template-columns:1fr !important;}
+  .hero-content h1{font-size:36px;}
+  .hero-content{padding:60px 24px;}
+  .sec-heading{font-size:28px;}
+}
+@media(max-width:640px){
+  .hero-content h1{font-size:26px;}
+  .hero-content p{font-size:15px;}
+  .hero-content{padding:48px 20px;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .hero-btns a{text-align:center;}
+  .hero{min-height:480px;}
+  .loans-grid,.why-grid,.events-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .stat-n{font-size:24px;}
+  .stat-l{font-size:11px;}
+  .pcard-details{grid-template-columns:1fr 1fr 1fr;}
+  .pcard-head{flex-direction:column;gap:10px;}
+  .sec-heading{font-size:24px;}
+  .sec-sub{font-size:14px;}
+  section{padding:52px 18px;}
+  .about-section,.products-section,.loans-section,.how-section,.why-section,.calc-section,.news-section,.events-section{padding:52px 18px;}
+  .calc-box{padding:22px 16px;}
+  .calc-tabs{gap:4px;}
+  .calc-tab{font-size:12px;padding:8px 10px;}
+  .slider-val{min-width:70px;font-size:13px;}
+  .cta-section{padding:56px 20px;}
+  .cta-section h2{font-size:26px;}
+  .cta-btns{flex-direction:column;align-items:center;gap:12px;}
+  .cta-btns a{width:100%;max-width:300px;text-align:center;}
+  .footer-main{grid-template-columns:1fr;gap:28px;}
+  .footer-bottom{flex-direction:column;text-align:center;gap:10px;}
+  .footer-bottom span{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
+  #contact>div>div:first-child{padding:28px 20px;}
+  .topbar-inner{justify-content:center;text-align:center;}
+  .topbar-inner span{font-size:11px;}
+  .header-inner{padding:10px 16px;}
+  .logo-words .abbr{font-size:18px;}
+  .logo-words .full,.logo-words .tag{display:none;}
+  .logo-mark{width:48px;height:48px;}
+  .ticker-inner{padding:0 16px;gap:10px;}
+  .partners-inner{padding:0 16px;}
+  .rtable{font-size:12px;}
+  .rtable th,.rtable td{padding:10px 10px;}
+  .lcard{padding:22px 18px;}
+  .wcard{padding:24px 18px;}
+  .cf-name-row{grid-template-columns:1fr !important;}
+}
+@media(max-width:400px){
+  .hero-content h1{font-size:22px;}
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .pcard-details{grid-template-columns:1fr 1fr 1fr;}
+  .calc-tab{font-size:11px;padding:7px 8px;}
+  .cf-name-row{grid-template-columns:1fr !important;}
+}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <!-- <span>📧 admin@dkgocfpc.com &nbsp;|&nbsp; 📞 +91-7204243533 &nbsp;|&nbsp; 📍 Mangaluru, Dakshina Kannada, Karnataka</span> -->
+  <span style="font-size:14.5px;color:rgba(255,255,255,.8);">
+  📧 <a href="mailto:admin@dkgocfpc.com" target="_blank" style="color:rgba(255,255,255,.8);text-decoration:none;">
+    admin@dkgocfpc.com
+  </a>
+  &nbsp;|&nbsp;
+  📞 <a href="tel:+917204243533" style="color:rgba(255,255,255,.8);text-decoration:none;">
+    +91-7204243533
+  </a>
+  &nbsp;|&nbsp;
+  📍 Mangaluru, Dakshina Kannada, Karnataka
+</span>
+
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <img src="images/logo.jpeg" alt="DKGOC FPC Logo" onerror="this.style.background='var(--mid)'"/>
+      </div>
+      <div class="logo-words">
+        <div class="abbr">DKGOC FARMER PRODUCER COMPANY LIMITED</div>
+        <!-- <div class="full">Link Banking &amp; Financial Services</div> -->
+        <div class="tag">Trusted Financial Services · Dakshina Kannada</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#home" class="nav-item">Home</a>
+      <a href="#about" class="nav-item">About</a>
+      <a href="#products" class="nav-item">Products</a>
+      <a href="#loans" class="nav-item">Loans</a>
+      <a href="#Services" class="nav-item">Services</a>
+      <!-- <a href="#news" class="nav-item">News</a> -->
+      <a href="#contact" class="nav-item btn-member">Become a Member</a>
+    </nav>
+    <!-- Hamburger -->
+    <button class="nav-toggle" onclick="openMobileNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--forest);">DKGOC FPC</div>
+    <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  </div>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#products" onclick="closeMobileNav()">Savings</a>
+  <a href="#loans" onclick="closeMobileNav()">Loans</a>
+  <a href="#calculator" onclick="closeMobileNav()">Calculator</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact Us</a>
+  <a href="#" onclick="closeMobileNav()">Become a Member</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-badge">Latest</span>
+    <div class="ticker-track">
+      <span class="ticker-scroll">
+        🏦 Daily Deposit scheme — our agent collects at your doorstep every day &nbsp;|&nbsp;
+        📅 Recurring Deposit interest rates revised upward — visit your nearest branch &nbsp;|&nbsp;
+        💰 Fixed Deposit: Earn up to 12.5% p.a. — special rates for senior citizens &nbsp;|&nbsp;
+        📆 Monthly Income Scheme — invest once, receive interest every month &nbsp;|&nbsp;
+        🏆 DKGOC recognised as Best Performing Framer producer Company in Karnataka &nbsp;|&nbsp;
+        <!-- 🥇 Gold Loans disbursed within 1 hour — walk in to your nearest branch &nbsp;|&nbsp; -->
+        💳 Personal Loans approved within 48 hours — minimal documentation required
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" id ="home">
+  <img class="hero-img" src="images/agriculture-derivatives-trading.jpg" alt="DKGOC Link Banking" onerror="this.style.display='none'"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-pill">🏦 Trusted by 1,500+ Members Since 2025</div>
+    <h1>Grow Your Savings.<br><span style="color:var(--lime);">Secure Your Future.</span></h1>
+    <p>DKGOC Framer Producer Company offers safe, high-return savings and loan products — Daily Deposit, Recurring Deposit, Fixed Deposit, Monthly Income Scheme, and more — built for the members and families of Dakshina Kannada.</p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-green">Explore Our Products</a>
+      <a href="#contact" class="btn-ghost">Become a Member</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n" data-target="1500" data-suf="+">1,500+</div><div class="stat-l">Members</div></div>
+    <div class="stat"><div class="stat-n" data-target="9" data-suf="">12</div><div class="stat-l">Talukas Covered</div></div>
+    <!-- <div class="stat"><div class="stat-n" data-target="8" data-suf="">8</div><div class="stat-l">Collection Centres</div></div> -->
+    <div class="stat"><div class="stat-n" data-target="1" data-suf="Cr+">1Cr+</div><div class="stat-l">Deposits Managed</div></div>
+    <div class="stat"><div class="stat-n" data-target="2025" data-suf="">2025</div><div class="stat-l">Established</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-section" id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="about-photo">
+        <img src="images/second.avif" alt="DKGOC Members" onerror="this.style.display='none'"/>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="sec-tag">About DKGOC Framer Producer Company</div>
+      <h2 class="sec-heading">About DKGOC Rooted in Dakshina Kannada<br><a style="font-size: 18px;">For Its People,</a></h2>
+      <p style="color:var(--muted);margin-bottom:14px;line-height:1.75;">DKGOC Farmer Producer Company Limited is a farmer-owned and farmer-led organization committed to empowering agricultural communities through sustainable practices, collective growth, and market-driven solutions. Established with the objective of strengthening the economic well-being of farmers, the company works as a unified platform to enhance productivity, profitability, and long-term resilience in the agricultural sector.</p>
+
+<!-- DKGOC Farmer Producer Company Limited actively promotes capacity building, financial inclusion, and access to technology by collaborating with banks, financial institutions, agri-input suppliers, processors, and buyers. Our initiatives are designed to support farmers at every stage-from cultivation and harvesting to storage, processing, and sales. With a strong emphasis on ethical practices, sustainability, and community development, DKGOC Farmer Producer Company Limited strives to create a robust agricultural ecosystem that improves livelihoods, encourages innovation, and contributes to rural prosperity.</p> -->
+      <!-- <p style="color:var(--muted);line-height:1.75;">Through our <strong style="color:var(--forest);">Link Banking</strong> initiative, DKGOC FPC offers trusted savings and loan products that enable households to save securely, earn better returns, access credit, and achieve lasting financial stability.</p> -->
+      <div class="pillars">
+        <div class="pillar">🏦 Daily Deposit Scheme</div>
+        <div class="pillar">📅 Recurring Deposit</div>
+        <div class="pillar">💰 Fixed Deposit</div>
+        <div class="pillar">📆 Monthly Income Scheme</div>
+        <div class="pillar">💳 Personal Loans</div>
+        <div class="pillar">🏡 Doorstep Collection</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products-section" id="products">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Savings Products</div>
+      <h2 class="sec-heading">Our Products</h2>
+      <div class="ruled center"></div>
+    </div>
+    <div class="products-grid" style="margin-top:44px;">
+      <div class="pcard reveal">
+        <div class="pcard-head">
+          <div class="pcard-icon" style="background:linear-gradient(135deg,#d8f3dc,#b7e4c7);">🏦</div>
+          <div><h3>Daily Deposit</h3><span class="rate-badge">📈 6.50% – 7.00% p.a.</span></div>
+        </div>
+        <div class="pcard-body">
+          <p>A micro-savings scheme that lets members deposit small amounts every single day. Ideal for daily wage earners, homemakers, and working individuals. Our agents collect right at your doorstep — no bank visit needed.</p>
+          <ul class="pcard-features">
+            <li>Minimum daily deposit as low as ₹10</li>
+            <li>Daily doorstep collection by DKGOC agent</li>
+            <li>Attractive interest on accumulated savings</li>
+            <li>Maturity bonus for uninterrupted depositors</li>
+            <li>Passbook issued for complete transparency</li>
+            <li>Flexible tenure from 12 to 36 months</li>
+          </ul>
+          <div class="pcard-details">
+            <div class="pcard-detail"><div class="dlabel">Min. Deposit</div><div class="dval">₹10/day</div></div>
+            <div class="pcard-detail"><div class="dlabel">Tenure</div><div class="dval">12–36 mo</div></div>
+            <div class="pcard-detail"><div class="dlabel">Rate</div><div class="dval" style="color:var(--accent);">6.50%+</div></div>
+          </div>
+          <a href="#" class="link-more">Know More →</a>
+        </div>
+      </div>
+      <div class="pcard reveal">
+        <div class="pcard-head">
+          <div class="pcard-icon" style="background:linear-gradient(135deg,#c7f9cc,#a3d9a5);">📅</div>
+          <div><h3>Recurring Deposit</h3><span class="rate-badge">📈 7.00% – 7.50% p.a.</span></div>
+        </div>
+        <div class="pcard-body">
+          <p>Save a fixed amount every month and watch your corpus grow steadily. Perfect for members who want disciplined monthly savings with guaranteed returns at maturity — ideal for planning major expenses like education or land purchase.</p>
+          <ul class="pcard-features">
+            <li>Monthly deposits starting from ₹500</li>
+            <li>Flexible tenure from 12 to 60 months</li>
+            <li>Lump sum payout on maturity with interest</li>
+            <li>Partial withdrawal facility available</li>
+            <li>Nomination facility included</li>
+            <li>Competitive rates — higher than commercial banks</li>
+          </ul>
+          <div class="pcard-details">
+            <div class="pcard-detail"><div class="dlabel">Min. Deposit</div><div class="dval">₹500/mo</div></div>
+            <div class="pcard-detail"><div class="dlabel">Tenure</div><div class="dval">12–60 mo</div></div>
+            <div class="pcard-detail"><div class="dlabel">Rate</div><div class="dval" style="color:var(--accent);">7.00%+</div></div>
+          </div>
+          <a href="#" class="link-more">Know More →</a>
+        </div>
+      </div>
+      <div class="pcard reveal">
+        <div class="pcard-head">
+          <div class="pcard-icon" style="background:linear-gradient(135deg,#d8f3dc,#95d5b2);">💰</div>
+          <div><h3>Fixed Deposit</h3><span class="rate-badge">📈 7.50% – 8.00% p.a.</span></div>
+        </div>
+        <div class="pcard-body">
+          <p>Invest a lump sum for a fixed tenure and earn the highest guaranteed returns. DKGOC Fixed Deposits consistently offer better interest rates than commercial banks — the preferred savings choice for families with a surplus to invest.</p>
+          <ul class="pcard-features">
+            <li>Minimum deposit ₹5,000 — no maximum limit</li>
+            <li>Flexible tenure from 6 months to 5 years</li>
+            <li>Higher rates for senior citizens (+0.50%)</li>
+            <li>Loan against FD up to 90% of deposit value</li>
+            <li>Auto-renewal option on maturity</li>
+            <li>Interest credited quarterly or at maturity</li>
+          </ul>
+          <div class="pcard-details">
+            <div class="pcard-detail"><div class="dlabel">Min. Deposit</div><div class="dval">₹5,000</div></div>
+            <div class="pcard-detail"><div class="dlabel">Tenure</div><div class="dval">6–60 mo</div></div>
+            <div class="pcard-detail"><div class="dlabel">Rate</div><div class="dval" style="color:var(--accent);">7.50%+</div></div>
+          </div>
+          <a href="#" class="link-more">Know More →</a>
+        </div>
+      </div>
+      <div class="pcard reveal">
+        <div class="pcard-head">
+          <div class="pcard-icon" style="background:linear-gradient(135deg,#b7e4c7,#74c69d);">📆</div>
+          <div><h3>Monthly Income Scheme</h3><span class="rate-badge">📈 7.25% – 7.75% p.a.</span></div>
+        </div>
+        <div class="pcard-body">
+          <p>Invest a one-time lump sum and receive a fixed monthly interest payout directly to your linked account. Designed for senior citizens, retired individuals, and anyone seeking reliable passive income without waiting for maturity.</p>
+          <ul class="pcard-features">
+            <li>One-time investment from ₹10,000</li>
+            <li>Monthly interest credited to linked account</li>
+            <li>No TDS for deposits under threshold</li>
+            <li>Tenure from 1 to 5 years</li>
+            <li>Principal returned in full at maturity</li>
+            <li>Best suited for post-retirement income planning</li>
+          </ul>
+          <div class="pcard-details">
+            <div class="pcard-detail"><div class="dlabel">Min. Invest</div><div class="dval">₹10,000</div></div>
+            <div class="pcard-detail"><div class="dlabel">Tenure</div><div class="dval">12–60 mo</div></div>
+            <div class="pcard-detail"><div class="dlabel">Rate</div><div class="dval" style="color:var(--accent);">7.25%+</div></div>
+          </div>
+          <a href="#" class="link-more">Know More →</a>
+        </div>
+      </div>
+    </div>
+    <!-- RATE TABLE -->
+    <div class="rate-table-wrap reveal" style="margin-top:52px;">
+      <h3>Indicative Interest Rate Chart</h3>
+      <div style="overflow-x:auto;">
+        <table class="rtable">
+          <thead>
+            <tr><th>Scheme</th><th>Minimum Amount</th><th>Tenure</th><th>General Rate</th><th>Senior Citizen</th><th>Payout</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Daily Deposit</td><td>₹100/day</td><td>12 months</td><td><span class="rate-hi">5.00%</span></td><td><span class="rate-hi">5.00%</span></td><td>On Maturity</td></tr>
+            <!-- <tr><td>Recurring Deposit</td><td>₹500/month</td><td>12 – 60 months</td><td><span class="rate-hi">7.00%</span></td><td><span class="rate-hi">7.50%</span></td><td>On Maturity</td></tr> -->
+            <tr><td>Fixed Deposit</td><td>₹5,000</td><td>12months</td><td><span class="rate-hi">8.00%</span></td><td><span class="rate-hi">9.00%</span></td><td>On Maturity</td></tr>
+            <tr><td>Monthly Income Scheme</td><td>₹5,000</td><td>12 months</td><td><span class="rate-hi">8.05%</span></td><td><span class="rate-hi">9.00%</span></td><td>Quarterly /Monthly</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rate-note">* Rates are indicative and subject to revision. Contact nearest DKGOC branch for current rates and terms.</p>
+    </div>
+  </div>
+</div>
+
+<!-- LOANS -->
+<div class="loans-section" id="loans">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Loan Products</div>
+      <h2 class="sec-heading">Credit &amp; Loan Facilities</h2>
+      <p class="sec-sub">Flexible, member-friendly loans for every need — at competitive interest rates with minimal paperwork.</p>
+      <div class="ruled center"></div>
+    </div>
+    <div class="loans-grid" style="margin-top:44px;">
+      <div class="lcard reveal"><div class="lcard-icon">🥇</div><h3>Gold Loan</h3><p>Instant credit against gold ornaments for any personal or emergency expense. Quick disbursement within 1 hour of verification.</p><div class="lcard-meta"><div class="lmeta-row"><span class="lkey">Interest Rate</span><span class="lval">11% – 13% p.a.</span></div><div class="lmeta-row"><span class="lkey">Loan Amount</span><span class="lval">Up to 75% of gold value</span></div><div class="lmeta-row"><span class="lkey">Tenure</span><span class="lval">3 – 12 months</span></div><div class="lmeta-row"><span class="lkey">Disbursement</span><span class="lval">Within 1 hour</span></div></div></div>
+      <div class="lcard reveal"><div class="lcard-icon">🏦</div><h3>FD Overdraft Loan</h3><p>Avail an overdraft loan against your existing Fixed Deposit without breaking it. Continue earning FD interest while accessing credit.</p><div class="lcard-meta"><div class="lmeta-row"><span class="lkey">Interest Rate</span><span class="lval">FD Rate + 1.5%</span></div><div class="lmeta-row"><span class="lkey">Loan Amount</span><span class="lval">Up to 90% of FD</span></div><div class="lmeta-row"><span class="lkey">Tenure</span><span class="lval">Up to FD maturity</span></div><div class="lmeta-row"><span class="lkey">Processing</span><span class="lval">Same day</span></div></div></div>
+      <div class="lcard reveal"><div class="lcard-icon">🏡</div><h3>Personal Loan</h3><p>Quick personal loans for members facing medical, educational, home repair, or urgent household expenses. Rapid approval.</p><div class="lcard-meta"><div class="lmeta-row"><span class="lkey">Interest Rate</span><span class="lval">12% – 15% p.a.</span></div><div class="lmeta-row"><span class="lkey">Loan Amount</span><span class="lval">₹5,000 – ₹2,00,000</span></div><div class="lmeta-row"><span class="lkey">Tenure</span><span class="lval">3 – 36 months</span></div><div class="lmeta-row"><span class="lkey">Approval</span><span class="lval">Within 48 hours</span></div></div></div>
+      <!-- <div class="lcard reveal"><div class="lcard-icon">🎓</div><h3>Education Loan</h3><p>Affordable loans to support children's higher education, vocational training, and skill development courses.</p><div class="lcard-meta"><div class="lmeta-row"><span class="lkey">Interest Rate</span><span class="lval">11% – 13% p.a.</span></div><div class="lmeta-row"><span class="lkey">Loan Amount</span><span class="lval">₹10,000 – ₹3,00,000</span></div><div class="lmeta-row"><span class="lkey">Tenure</span><span class="lval">12 – 60 months</span></div><div class="lmeta-row"><span class="lkey">Collateral</span><span class="lval">Surety / FD</span></div></div></div> -->
+      <!-- <div class="lcard reveal"><div class="lcard-icon">🏗️</div><h3>Home Improvement Loan</h3><p>Loans for house renovation, construction, roofing, and sanitation needs for DKGOC members in Dakshina Kannada.</p><div class="lcard-meta"><div class="lmeta-row"><span class="lkey">Interest Rate</span><span class="lval">12% – 14% p.a.</span></div><div class="lmeta-row"><span class="lkey">Loan Amount</span><span class="lval">₹25,000 – ₹5,00,000</span></div><div class="lmeta-row"><span class="lkey">Tenure</span><span class="lval">12 – 60 months</span></div><div class="lmeta-row"><span class="lkey">Collateral</span><span class="lval">Property / Surety</span></div></div></div> -->
+      <!-- <div class="lcard reveal"><div class="lcard-icon">🛒</div><h3>Consumer Durable Loan</h3><p>Easy EMI loans for purchase of household appliances, electronics, two-wheelers, and other consumer goods.</p><div class="lcard-meta"><div class="lmeta-row"><span class="lkey">Interest Rate</span><span class="lval">13% – 15% p.a.</span></div><div class="lmeta-row"><span class="lkey">Loan Amount</span><span class="lval">₹5,000 – ₹1,00,000</span></div><div class="lmeta-row"><span class="lkey">Tenure</span><span class="lval">6 – 24 months</span></div><div class="lmeta-row"><span class="lkey">Processing</span><span class="lval">2–3 working days</span></div></div></div> -->
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Simple Process</div>
+      <h2 class="sec-heading">How to Get Started</h2>
+      <p class="sec-sub">Becoming a DKGOC member and opening your account is simple — just 4 easy steps.</p>
+      <div class="ruled center"></div>
+    </div>
+    <div class="steps" style="margin-top:48px;">
+      <div class="step reveal"><div class="step-num">1</div><h4>Register as Member</h4><p>Visit your nearest DKGOC branch or call us. Complete a simple KYC form with Aadhaar, PAN, and a passport photo.</p></div>
+      <div class="step reveal"><div class="step-num">2</div><h4>Choose Your Product</h4><p>Select the savings or loan product that fits your needs — Daily Deposit, RD, FD, MIS, or a loan type.</p></div>
+      <div class="step reveal"><div class="step-num">3</div><h4>Make Your Deposit</h4><p>Deposit your first amount in-branch or hand it to our doorstep agent. Receive your passbook on the spot.</p></div>
+      <div class="step reveal"><div class="step-num">4</div><h4>Watch It Grow</h4><p>Track your balance via passbook or our agent visits. Earn interest regularly and collect your returns at maturity.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY DKGOC -->
+<div class="why-section" id="Services">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Why Choose Us</div>
+      <h2 class="sec-heading">Why 2,500+ Members Trust DKGOC</h2>
+      <p class="sec-sub">We're not just a financial company — we're a member-owned institution built for the community, by the community.</p>
+      <div class="ruled center"></div>
+    </div>
+    <div class="why-grid" style="margin-top:44px;">
+      <div class="wcard reveal"><div class="wcard-icon">🔒</div><h3>Safe &amp; Transparent</h3><p>A government-registered producer company under Companies Act 2013, with fully audited accounts, member governance, and complete financial transparency.</p></div>
+      <div class="wcard reveal"><div class="wcard-icon">📈</div><h3>Higher Returns</h3><p>DKGOC offers up to 8% p.a. on FDs and 7.75% for senior citizens — consistently better than most commercial banks and post office schemes.</p></div>
+      <div class="wcard reveal"><div class="wcard-icon">🏡</div><h3>Doorstep Banking</h3><p>Our trained field agents collect daily deposits at your doorstep every day — no travel, no queues, no bank visits needed.</p></div>
+      <div class="wcard reveal"><div class="wcard-icon">🤝</div><h3>Member-First Governance</h3><p>All profits are reinvested into member welfare and community development. Your money stays in your community and works for you.</p></div>
+      <div class="wcard reveal"><div class="wcard-icon">⚡</div><h3>Quick Loan Disbursal</h3><p>Gold loans disbursed within 1 hour. Personal and other loans approved within 48 hours — no lengthy bank procedures.</p></div>
+      <div class="wcard reveal"><div class="wcard-icon">📋</div><h3>Minimal Paperwork</h3><p>Simple KYC with Aadhaar and PAN. No complex procedures or unnecessary documentation. Accounts opened the same day.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<div class="calc-section" id="calculator">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Plan Your Savings</div>
+      <h2 class="sec-heading">Returns Calculator</h2>
+      <p class="sec-sub">Estimate your maturity amount or monthly income — instantly.</p>
+    </div>
+    <div class="calc-box reveal">
+      <div class="calc-tabs">
+        <button class="calc-tab active" onclick="switchTab(this,'fd')">Fixed Deposit</button>
+        <button class="calc-tab" onclick="switchTab(this,'rd')">Recurring Deposit</button>
+        <button class="calc-tab" onclick="switchTab(this,'mis')">Monthly Income</button>
+        <button class="calc-tab" onclick="switchTab(this,'dd')">Daily Deposit</button>
+      </div>
+      <div class="calc-grid">
+        <div>
+          <div id="tab-fd">
+            <div class="form-group"><label>Principal Amount (₹)</label><div class="slider-row"><input type="range" id="fd-amt" min="5000" max="500000" step="1000" value="50000" oninput="syncFD()"/><span class="slider-val" id="fd-amt-val">₹50,000</span></div></div>
+            <div class="form-group"><label>Tenure (months)</label><div class="slider-row"><input type="range" id="fd-ten" min="6" max="60" step="6" value="24" oninput="syncFD()"/><span class="slider-val" id="fd-ten-val">24 months</span></div></div>
+            <div class="form-group"><label>Interest Rate (% p.a.)</label><div class="slider-row"><input type="range" id="fd-rate" min="7" max="8" step="0.25" value="7.5" oninput="syncFD()"/><span class="slider-val" id="fd-rate-val">7.50%</span></div></div>
+          </div>
+          <div id="tab-rd" style="display:none">
+            <div class="form-group"><label>Monthly Deposit (₹)</label><div class="slider-row"><input type="range" id="rd-amt" min="500" max="50000" step="500" value="2000" oninput="syncRD()"/><span class="slider-val" id="rd-amt-val">₹2,000/mo</span></div></div>
+            <div class="form-group"><label>Tenure (months)</label><div class="slider-row"><input type="range" id="rd-ten" min="12" max="60" step="6" value="24" oninput="syncRD()"/><span class="slider-val" id="rd-ten-val">24 months</span></div></div>
+            <div class="form-group"><label>Interest Rate (% p.a.)</label><div class="slider-row"><input type="range" id="rd-rate" min="7" max="7.5" step="0.25" value="7" oninput="syncRD()"/><span class="slider-val" id="rd-rate-val">7.00%</span></div></div>
+          </div>
+          <div id="tab-mis" style="display:none">
+            <div class="form-group"><label>Investment Amount (₹)</label><div class="slider-row"><input type="range" id="mis-amt" min="10000" max="500000" step="5000" value="100000" oninput="syncMIS()"/><span class="slider-val" id="mis-amt-val">₹1,00,000</span></div></div>
+            <div class="form-group"><label>Tenure (months)</label><div class="slider-row"><input type="range" id="mis-ten" min="12" max="60" step="12" value="36" oninput="syncMIS()"/><span class="slider-val" id="mis-ten-val">36 months</span></div></div>
+            <div class="form-group"><label>Interest Rate (% p.a.)</label><div class="slider-row"><input type="range" id="mis-rate" min="7.25" max="7.75" step="0.25" value="7.25" oninput="syncMIS()"/><span class="slider-val" id="mis-rate-val">7.25%</span></div></div>
+          </div>
+          <div id="tab-dd" style="display:none">
+            <div class="form-group"><label>Daily Deposit (₹)</label><div class="slider-row"><input type="range" id="dd-amt" min="10" max="1000" step="10" value="100" oninput="syncDD()"/><span class="slider-val" id="dd-amt-val">₹100/day</span></div></div>
+            <div class="form-group"><label>Tenure (months)</label><div class="slider-row"><input type="range" id="dd-ten" min="12" max="36" step="6" value="24" oninput="syncDD()"/><span class="slider-val" id="dd-ten-val">24 months</span></div></div>
+          </div>
+          <button class="btn-calc" onclick="calculate()">Calculate Returns →</button>
+        </div>
+        <div class="calc-result">
+          <h4>Your Estimated Returns</h4>
+          <div class="res-row"><span class="res-label">Principal Amount</span><span class="res-val" id="r-principal">₹50,000</span></div>
+          <div class="res-row"><span class="res-label">Interest Earned</span><span class="res-val" id="r-interest">₹8,228</span></div>
+          <div class="res-row"><span class="res-label">Tenure</span><span class="res-val" id="r-tenure">24 months</span></div>
+          <div class="res-row"><span class="res-label">Rate Applied</span><span class="res-val" id="r-rate">7.50% p.a.</span></div>
+          <div class="res-total">
+            <div class="tl" id="r-label">Maturity Amount</div>
+            <div class="tv" id="r-total">₹58,228</div>
+          </div>
+          <p style="font-size:11.5px;color:rgba(255,255,255,.45);margin-top:14px;text-align:center;">* Indicative figures. Actual returns may vary slightly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS - COMMENTED OUT
+<div class="news-section" id="news">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Stay Informed</div>
+      <h2 class="sec-heading">News &amp; Announcements</h2>
+      <p class="sec-sub">Latest updates, new schemes, and announcements from DKGOC.</p>
+      <div class="ruled center"></div>
+    </div>
+    <div class="news-grid" style="margin-top:44px;">
+      <div class="news-feat reveal">
+        <div class="nf-img">💰</div>
+        <div class="nf-body">
+          <div class="nf-date">March 2025 · Announcement</div>
+          <h3>Fixed Deposit Rates Revised Upward — Now Earn Up to 8% p.a.</h3>
+          <p>DKGOC is pleased to announce revised Fixed Deposit interest rates effective April 2025. General members earn up to 7.50% and senior citizens up to 8.00% p.a. Visit any branch to open or renew your FD today.</p>
+          <a href="#" class="btn-green" style="font-size:13px;padding:10px 20px;">Read Full Announcement →</a>
+        </div>
+      </div>
+      <div class="news-list reveal">
+        <div class="nitem"><div class="nitem-icon">🏆</div><div><div class="nitem-date">Mar 2025</div><div class="nitem-title">DKGOC recognised as Best Performing FPC by NABARD Karnataka Regional Office</div></div></div>
+        <div class="nitem"><div class="nitem-icon">🏦</div><div><div class="nitem-date">Feb 2025</div><div class="nitem-title">New branch opened in Puttur — doorstep deposit collection now available in Puttur Taluka</div></div></div>
+        <div class="nitem"><div class="nitem-icon">📅</div><div><div class="nitem-date">Jan 2025</div><div class="nitem-title">Recurring Deposit interest rates revised upward — new rates effective February 2025</div></div></div>
+        <div class="nitem"><div class="nitem-icon">🌱</div><div><div class="nitem-date">Jan 2025</div><div class="nitem-title">DKGOC officially registered and commenced operations — welcoming founding members</div></div></div>
+        <div class="nitem"><div class="nitem-icon">📢</div><div><div class="nitem-date">Jan 2025</div><div class="nitem-title">DKGOC signs MoU with DK Zilla Panchayat for financial inclusion support services</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+END COMMENT -->
+
+<!-- EVENTS - COMMENTED OUT
+<div class="events-section">
+  <div class="sec-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Calendar</div>
+      <h2 class="sec-heading">Upcoming Events</h2>
+      <p class="sec-sub">Member meetings, financial literacy workshops, and savings drives across Dakshina Kannada.</p>
+      <div class="ruled center"></div>
+    </div>
+    <div class="events-grid" style="margin-top:44px;">
+      <div class="ecard reveal">
+        <div class="ecard-top"><div class="ecal"><div class="day">25</div><div class="month">Mar</div></div><div class="einfo"><div class="etype">Member Registration Camp</div><div class="eloc">📍 DKGOC HQ, Mangaluru</div></div></div>
+        <div class="ecard-body"><h3>Open House &amp; New Member Enrolment Drive</h3><p>Walk in to open your Daily Deposit, RD, FD, or MIS account. Free financial counselling, same-day account opening. Bring Aadhaar and PAN.</p></div>
+      </div>
+      <div class="ecard reveal">
+        <div class="ecard-top"><div class="ecal"><div class="day">10</div><div class="month">Apr</div></div><div class="einfo"><div class="etype">Financial Literacy Workshop</div><div class="eloc">📍 Puttur, DK District</div></div></div>
+        <div class="ecard-body"><h3>Savings &amp; Investment Planning Workshop</h3><p>Free workshop on savings habits, understanding deposit products, loan eligibility, and planning for future goals. Open to all members and families.</p></div>
+      </div>
+      <div class="ecard reveal">
+        <div class="ecard-top"><div class="ecal"><div class="day">22</div><div class="month">Apr</div></div><div class="einfo"><div class="etype">Annual General Meeting</div><div class="eloc">📍 Town Hall, Mangaluru</div></div></div>
+        <div class="ecard-body"><h3>DKGOC First Annual General Body Meeting 2025</h3><p>Review of FY2024–25 financials, Board elections, and strategic plan for the next year. Attendance mandatory for all active members.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+END COMMENT -->
+
+<!-- PARTNERS - COMMENTED OUT
+<div class="partners-section">
+  <div class="partners-inner">
+    <h2>Our Partners &amp; Supporting Institutions</h2>
+    <div class="partner-logos">
+      <div class="p-logo">NABARD</div>
+      <div class="p-logo">SFAC</div>
+      <div class="p-logo">Dept. of Finance Karnataka</div>
+      <div class="p-logo">DK Zilla Panchayat</div>
+      <div class="p-logo">Canara Bank</div>
+      <div class="p-logo">Karnataka Gramin Bank</div>
+      <div class="p-logo">RBI (Regulated)</div>
+      <div class="p-logo">KSDA</div>
+      <div class="p-logo">Syndicate Bank</div>
+      <div class="p-logo">SIDBI</div>
+    </div>
+  </div>
+</div>
+END COMMENT -->
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Start Saving with DKGOC Today</h2>
+  <p>Join 2,500+ members who trust DKGOC with their savings. Open a Daily Deposit, RD, FD, or MIS account and enjoy safe, high-return banking built for Dakshina Kannada.</p>
+  <div class="cta-btns">
+    <a href="#contact" class="btn-white">Open an Account</a>
+    <a href="#calculator" class="btn-border-white">Calculate My Returns</a>
+    <a href="images/ads.jpeg" download class="btn-border-white">Download Brochure</a>
+  </div>
+</div>
+
+<!-- CONTACT US -->
+<div id="contact" style="background:var(--cream);padding:80px 28px;">
+  <div class="sec-inner">
+    <div class="sec-center reveal" style="margin-bottom:44px;">
+      <div class="sec-tag">Get In Touch</div>
+      <h2 class="sec-heading">Contact Us</h2>
+      <p class="sec-sub">Fill in the form below and our team will get back to you. All fields are mandatory.</p>
+      <div class="ruled center"></div>
+    </div>
+    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;">
+
+      <!-- CONTACT INFO -->
+      <div class="reveal">
+        <div style="background:var(--forest);border-radius:20px;padding:40px;color:var(--white);">
+          <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:24px;color:var(--lime);">Our Office</h3>
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="font-size:22px;flex-shrink:0;">📍</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lime);margin-bottom:4px;">Address</div>
+                <div style="font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.6;">DKGOC Farmer Producer Company Ltd,<br>Mangaluru, Dakshina Kannada,<br>Karnataka — 575001</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="font-size:22px;flex-shrink:0;">📞</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lime);margin-bottom:4px;">Phone</div>
+                <!-- <div style="font-size:14.5px;color:rgba(255,255,255,.8);">+91-824-2222-XXX</div> -->
+                 <a href="tel:+917204243533" style="color:rgba(255,255,255,.8);text-decoration:none;">+91-720-424-3533</a>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="font-size:22px;flex-shrink:0;">📧</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lime);margin-bottom:4px;">Email</div>
+                <!-- <div style="font-size:14.5px;color:rgba(255,255,255,.8);">admin@dkgocfpc.com</div> -->
+                <div><a href="mailto:admin@dkgocfpc.com" target="_blank" style="font-size:14.5px;color:rgba(255,255,255,.8);">admin@dkgocfpc.com</a></div>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="font-size:22px;flex-shrink:0;">🕐</div>
+              <div>
+                <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lime);margin-bottom:4px;">Office Hours</div>
+                <div style="font-size:14.5px;color:rgba(255,255,255,.8);">Monday – Saturday<br>9:00 AM – 5:30 PM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="reveal">
+        <div style="background:var(--white);border-radius:20px;padding:40px;box-shadow:var(--shadow);">
+          <form id="contactForm" onsubmit="sendMail(event)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;" class="cf-name-row">
+              <div>
+                <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin-bottom:7px;">Full Name *</label>
+                <input type="text" id="cf-name" placeholder="Your full name" required
+                  style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;"
+                  onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+              </div>
+              <div>
+                <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin-bottom:7px;">Mobile Number *</label>
+                <input type="tel" id="cf-phone" placeholder="10-digit mobile number" required pattern="[0-9]{10}"
+                  style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;"
+                  onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+              </div>
+            </div>
+            <div style="margin-bottom:18px;">
+              <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin-bottom:7px;">Email Address *</label>
+              <input type="email" id="cf-email" placeholder="your@email.com" required
+                style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;"
+                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+            </div>
+            <div style="margin-bottom:18px;">
+              <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin-bottom:7px;">Interested In *</label>
+              <select id="cf-interest" required
+                style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;background:var(--white);transition:border-color .2s;"
+                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+                <option value="">-- Select a product --</option>
+                <option value="Daily Deposit">Daily Deposit</option>
+                <option value="Recurring Deposit">Recurring Deposit</option>
+                <option value="Fixed Deposit">Fixed Deposit</option>
+                <option value="Monthly Income Scheme">Monthly Income Scheme</option>
+                <option value="Gold Loan">Gold Loan</option>
+                <option value="Personal Loan">Personal Loan</option>
+                <option value="Education Loan">Education Loan</option>
+                <option value="Home Improvement Loan">Home Improvement Loan</option>
+                <option value="Other / General Enquiry">Other / General Enquiry</option>
+              </select>
+            </div>
+            <div style="margin-bottom:18px;">
+              <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin-bottom:7px;">Address / Location *</label>
+              <input type="text" id="cf-address" placeholder="Your village, taluka, district" required
+                style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;"
+                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+            </div>
+            <div style="margin-bottom:24px;">
+              <label style="display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--forest);margin-bottom:7px;">Message *</label>
+              <textarea id="cf-message" rows="4" placeholder="Tell us how we can help you..." required
+                style="width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);outline:none;resize:vertical;transition:border-color .2s;"
+                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+            </div>
+            <button type="submit"
+              style="width:100%;padding:15px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--mid));color:var(--white);font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(30,90,56,.3);transition:transform .15s,box-shadow .15s;"
+              onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+              Send Message →
+            </button>
+            <div id="cf-success" style="display:none;margin-top:16px;padding:14px 18px;background:var(--pale);border-radius:10px;color:var(--forest);font-weight:600;font-size:14px;text-align:center;">
+              ✅ Your message has been sent! We'll get back to you shortly.
+            </div>
+            <div id="cf-error" style="display:none;margin-top:16px;padding:14px 18px;background:#fde8e8;border-radius:10px;color:#c0392b;font-weight:600;font-size:14px;text-align:center;">
+              ❌ Failed to send. Please email us directly at admin@dkgocfpc.com
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="fb-abbr">DKGOC</div>
+      <div class="fb-full">Link Banking &amp; Financial Services</div>
+      <p>Serving the members of Dakshina Kannada with trusted financial products since 2025. A member-owned, member-governed producer company registered under Companies Act 2013.</p>
+      <div class="f-socials">
+        <a href="#" class="f-social">💬</a>
+        <a href="#" class="f-social">f</a>
+        <a href="#" class="f-social">▶</a>
+        <a href="#" class="f-social">𝕏</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Savings</h4>
+      <a href="#">Daily Deposit</a>
+      <a href="#">Recurring Deposit</a>
+      <a href="#">Fixed Deposit</a>
+      <a href="#">Monthly Income Scheme</a>
+    </div>
+    <div class="f-col">
+      <h4>Loans</h4>
+      <a href="#">Gold Loan</a>
+      <a href="#">FD Overdraft Loan</a>
+      <a href="#">Personal Loan</a>
+      <a href="#">Education Loan</a>
+      <a href="#">Home Improvement Loan</a>
+    </div>
+    <div class="f-col">
+      <h4>Quick Links</h4>
+      <a href="#">Member Registration</a>
+      <a href="#">Returns Calculator</a>
+      <a href="#">Govt. Schemes</a>
+      <a href="#">Downloads</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 DKGOC Link Banking &amp; Financial Services. All rights reserved. &nbsp;|&nbsp; CIN: U01500KA2025PTC206029</span>
+    <span>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Disclaimer</a>
+    </span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Mobile nav
+function openMobileNav(){document.getElementById('mobileNav').classList.add('open');document.body.style.overflow='hidden';}
+function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow='';}
+
+// Reveal on scroll
+var ro = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+// Counter animation
+function animCounter(el, target, suf){
+  if(!target || isNaN(target)) return;
+  var start = 0, step = target/55;
+  var t = setInterval(function(){
+    start += step;
+    if(start >= target){start = target; clearInterval(t);}
+    var d = target > 999 ? Math.floor(start).toLocaleString('en-IN') : Math.floor(start);
+    el.textContent = (suf === 'Cr+') ? '₹'+d+suf : d+suf;
+  }, 28);
+}
+var statsEl = document.querySelector('.stats');
+var counted = false;
+new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting && !counted){
+      counted = true;
+      statsEl.querySelectorAll('.stat-n').forEach(function(n){
+        animCounter(n, parseInt(n.getAttribute('data-target')), n.getAttribute('data-suf')||'');
+      });
+    }
+  });
+},{threshold:0.4}).observe(statsEl);
+
+// Calculator
+var activeTab = 'fd';
+function switchTab(btn, tab){
+  document.querySelectorAll('.calc-tab').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  ['fd','rd','mis','dd'].forEach(function(t){
+    document.getElementById('tab-'+t).style.display = (t===tab)?'':'none';
+  });
+  activeTab = tab; calculate();
+}
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+function syncFD(){
+  document.getElementById('fd-amt-val').textContent = fmt(document.getElementById('fd-amt').value);
+  document.getElementById('fd-ten-val').textContent = document.getElementById('fd-ten').value+' months';
+  document.getElementById('fd-rate-val').textContent = parseFloat(document.getElementById('fd-rate').value).toFixed(2)+'%';
+  calculate();
+}
+function syncRD(){
+  document.getElementById('rd-amt-val').textContent = fmt(document.getElementById('rd-amt').value)+'/mo';
+  document.getElementById('rd-ten-val').textContent = document.getElementById('rd-ten').value+' months';
+  document.getElementById('rd-rate-val').textContent = parseFloat(document.getElementById('rd-rate').value).toFixed(2)+'%';
+  calculate();
+}
+function syncMIS(){
+  document.getElementById('mis-amt-val').textContent = fmt(document.getElementById('mis-amt').value);
+  document.getElementById('mis-ten-val').textContent = document.getElementById('mis-ten').value+' months';
+  document.getElementById('mis-rate-val').textContent = parseFloat(document.getElementById('mis-rate').value).toFixed(2)+'%';
+  calculate();
+}
+function syncDD(){
+  document.getElementById('dd-amt-val').textContent = fmt(document.getElementById('dd-amt').value)+'/day';
+  document.getElementById('dd-ten-val').textContent = document.getElementById('dd-ten').value+' months';
+  calculate();
+}
+function calculate(){
+  var p,i,ten,rate,maturity;
+  if(activeTab==='fd'){
+    p=parseFloat(document.getElementById('fd-amt').value);
+    ten=parseFloat(document.getElementById('fd-ten').value);
+    rate=parseFloat(document.getElementById('fd-rate').value);
+    i=p*(rate/100)*(ten/12); maturity=p+i;
+    document.getElementById('r-principal').textContent=fmt(p);
+    document.getElementById('r-interest').textContent=fmt(i);
+    document.getElementById('r-tenure').textContent=ten+' months';
+    document.getElementById('r-rate').textContent=rate.toFixed(2)+'% p.a.';
+    document.getElementById('r-label').textContent='Maturity Amount';
+    document.getElementById('r-total').textContent=fmt(maturity);
+  } else if(activeTab==='rd'){
+    var m=parseFloat(document.getElementById('rd-amt').value);
+    ten=parseFloat(document.getElementById('rd-ten').value);
+    rate=parseFloat(document.getElementById('rd-rate').value);
+    var r=rate/(12*100);
+    maturity=m*(Math.pow(1+r,ten)-1)/r*(1+r);
+    p=m*ten; i=maturity-p;
+    document.getElementById('r-principal').textContent=fmt(p);
+    document.getElementById('r-interest').textContent=fmt(i);
+    document.getElementById('r-tenure').textContent=ten+' months';
+    document.getElementById('r-rate').textContent=rate.toFixed(2)+'% p.a.';
+    document.getElementById('r-label').textContent='Maturity Amount';
+    document.getElementById('r-total').textContent=fmt(maturity);
+  } else if(activeTab==='mis'){
+    p=parseFloat(document.getElementById('mis-amt').value);
+    ten=parseFloat(document.getElementById('mis-ten').value);
+    rate=parseFloat(document.getElementById('mis-rate').value);
+    var monthly=p*rate/100/12; i=monthly*ten;
+    document.getElementById('r-principal').textContent=fmt(p);
+    document.getElementById('r-interest').textContent=fmt(monthly)+'/month';
+    document.getElementById('r-tenure').textContent=ten+' months';
+    document.getElementById('r-rate').textContent=rate.toFixed(2)+'% p.a.';
+    document.getElementById('r-label').textContent='Total Interest Earned';
+    document.getElementById('r-total').textContent=fmt(i);
+  } else if(activeTab==='dd'){
+    var daily=parseFloat(document.getElementById('dd-amt').value);
+    ten=parseFloat(document.getElementById('dd-ten').value);
+    p=daily*ten*30; i=p*(6.5/100)*(ten/12)*0.5; maturity=p+i;
+    document.getElementById('r-principal').textContent=fmt(p);
+    document.getElementById('r-interest').textContent=fmt(i)+' (approx)';
+    document.getElementById('r-tenure').textContent=ten+' months';
+    document.getElementById('r-rate').textContent='6.50% p.a.';
+    document.getElementById('r-label').textContent='Maturity Amount';
+    document.getElementById('r-total').textContent=fmt(maturity);
+  }
+}
+calculate();
+
+// Contact Form
+function sendMail(e) {
+  e.preventDefault();
+  var name     = document.getElementById('cf-name').value;
+  var phone    = document.getElementById('cf-phone').value;
+  var email    = document.getElementById('cf-email').value;
+  var interest = document.getElementById('cf-interest').value;
+  var address  = document.getElementById('cf-address').value;
+  var message  = document.getElementById('cf-message').value;
+
+  var subject = encodeURIComponent('DKGOC Enquiry: ' + interest + ' — ' + name);
+  var body = encodeURIComponent(
+    'Full Name: ' + name + '\n' +
+    'Mobile: ' + phone + '\n' +
+    'Email: ' + email + '\n' +
+    'Interested In: ' + interest + '\n' +
+    'Address: ' + address + '\n\n' +
+    'Message:\n' + message
+  );
+
+  window.location.href = 'mailto:admin@dkgocfpc.com?subject=' + subject + '&body=' + body;
+  document.getElementById('cf-success').style.display = 'block';
+  document.getElementById('cf-error').style.display = 'none';
+  document.getElementById('contactForm').reset();
+}
+</script>
+</body>
+</html>
